@@ -9,7 +9,7 @@
         }
         ;
   
-    function onClickMenuToggle(e){
+    const onClickMenuToggle = () => {
         
       if(!toggle){
 
@@ -25,8 +25,8 @@
             nodeList[i].style.transform = 'translate3d(0,0%,0)';
         }
 
-        gsap.from('.nav-menu-btn', {duration: 0.7, autoAlpha: 0, y: 50, ease: 'back.in(.7)', stagger: 0.2, onComplete: function(){
-            gsap.set('.social-overlay', {autoAlpha: 1});
+        gsap.from('.nav-menu-btn', {duration: 0.7, autoAlpha: 0, y: 50, ease: 'power2.out', stagger: 0.2, delay: 0.5, onComplete: function(){
+            gsap.to('.social-overlay', {autoAlpha: 1, duration: 0.5});
         }});
   
         toggle = true;
@@ -38,8 +38,6 @@
         select('.menu-toggle-wrapper').classList.remove('is-open');
         gsap.set('.menu-toggle-open', {display: 'block'});
         gsap.set('.menu-toggle-close', {display: 'none'});
-        
-        // gsap.set('.nav-menu', {display: 'none'});
 
         select('.nav-menu-bg-wrapper').style.transform = 'translate3d(0,-100%,0)';
         const nodeList = selectAll('.nav-menu-bg');
